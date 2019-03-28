@@ -1,2 +1,2 @@
-# ruhakachmaz.github.io
-My first GitHub site
+# Ruha Kachmaz
+The best site in the Net
