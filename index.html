@@ -27,7 +27,7 @@
             background-color: var(--tg-theme-bg-color, #F6FFFE);
             color: var(--tg-theme-text-color, #222222);
             font-size: 16px;
-            margin: 0;
+            margin: 0.5rem;
             padding: 0;
             color-scheme: var(--tg-color-scheme);
         }
@@ -78,10 +78,6 @@
 
         ul {
             text-align: left;
-        }
-
-        li {
-            color: var(--tg-theme-hint-color, #a8a8a8);
         }
 
         textarea {
@@ -179,15 +175,19 @@
             font-size: 12px;
         }
 
+        .d-none{
+            display: none;
+        }
+
         .elems-title{
-            font-size: 11px;
+            font-size: 14px;
         }
 
 
         .elem{
             font-family: 'Montserrat', sans-serif;
             position: relative;
-            height: 120px;
+            height: 155px;
             transition: .15s;
         }
 
@@ -197,8 +197,8 @@
         }
 
         .color-block{
-            width: 100px;
-            height: 30px;
+            width: 90px;
+            height: 90px;
             border-radius: 2px;
         }
 
@@ -207,7 +207,7 @@
             margin:0 auto;
         }
 
-        .elem button{
+/*        .elem button{
             width: 100px;
             cursor: pointer;
             font-size: 10px;
@@ -218,7 +218,7 @@
 
         .elem button:focus{
             box-shadow: none;
-        }
+        }*/
 
         .elem p{
             font-size: 10px;
@@ -237,6 +237,48 @@
             border-radius: 2px;
             width: 100%;
             height: 100%;
+        }
+
+        .modal-overlay{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color:rgba(0,0,0,.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-window{
+            z-index: 9999;
+            width: 90%;
+            height: 330px;
+            background-color:#fff;
+            border-radius: 5px;
+            padding: 1rem;
+        }
+
+        .modal-window p{
+            margin: 0;
+        }
+
+        .modal-color-title, .close-modal-window{
+            margin:0;
+            text-align: left;
+        }
+
+        .close-modal-window{
+            text-align: right;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .modal-color-block{
+            width: 100%;
+            height: 50px;
+            border-radius: 2px;
         }
 
     </style>
@@ -266,90 +308,110 @@
         <div class="col-4 mb-3 elem-wrapper">
             <div class="elem">
                 <div class="color-block mt-3 mb-3" style="background-color:#CDBEAC"></div>
-                <p>Наппа Porcelain <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#CDBEAC">ВЫБРАТЬ</button>
+                <p class="color-title">Наппа Porcelain</p>
+                <p class="color-delta">1.3 | 2.3</p>
             </div>
         </div>
         <div class="col-4 mb-3 elem-wrapper">
             <div class="elem">
                 <div class="color-block mt-3 mb-3" style="background-color:#A79888"></div>
-                <p>Наппа Silk Beige <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#A79888">ВЫБРАТЬ</button>
+                <p class="color-title">Наппа Porcelain</p>
+                <p class="color-delta">1.3 | 2.3</p>
             </div>
         </div>
         <div class="col-4 mb-3 elem-wrapper">
             <div class="elem">
                 <div class="color-block mt-3 mb-3" style="background-color:#695043"></div>
-                <p>Наппа Cigarette <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#695043">ВЫБРАТЬ</button>
+                <p class="color-title">Наппа Porcelain</p>
+                <p class="color-delta">1.3 | 2.3</p>
             </div>
         </div>
         <div class="col-4 mb-3 elem-wrapper">
             <div class="elem">
                 <div class="color-block mt-3 mb-3" style="background-color:#CDBEAC"></div>
-                <p>Наппа Porcelain <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#CDBEAC">ВЫБРАТЬ</button>
+                <p class="color-title">Наппа Porcelain</p>
+                <p class="color-delta">1.3 | 2.3</p>
             </div>
         </div>
         <div class="col-4 mb-3 elem-wrapper">
             <div class="elem">
                 <div class="color-block mt-3 mb-3" style="background-color:#A79888"></div>
-                <p>Наппа Silk Beige <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#A79888">ВЫБРАТЬ</button>
+                <p class="color-title">Наппа Porcelain</p>
+                <p class="color-delta">1.3 | 2.3</p>
             </div>
         </div>
         <div class="col-4 mb-3 elem-wrapper">
             <div class="elem">
                 <div class="color-block mt-3 mb-3" style="background-color:#695043"></div>
-                <p>Наппа Cigarette <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#695043">ВЫБРАТЬ</button>
+                <p class="color-title">Наппа Porcelain</p>
+                <p class="color-delta">1.3 | 2.3</p>
             </div>
         </div>
         <div class="col-4 mb-3 elem-wrapper">
             <div class="elem">
                 <div class="color-block mt-3 mb-3" style="background-color:#CDBEAC"></div>
-                <p>Наппа Porcelain <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#CDBEAC">ВЫБРАТЬ</button>
+                <p class="color-title">Наппа Porcelain</p>
+                <p class="color-delta">1.3 | 2.3</p>
             </div>
         </div>
         <div class="col-4 mb-3 elem-wrapper">
             <div class="elem">
                 <div class="color-block mt-3 mb-3" style="background-color:#A79888"></div>
-                <p>Наппа Silk Beige <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#A79888">ВЫБРАТЬ</button>
+                <p class="color-title">Наппа Porcelain</p>
+                <p class="color-delta">1.3 | 2.3</p>
             </div>
         </div>
         <div class="col-4 mb-3 elem-wrapper">
             <div class="elem">
                 <div class="color-block mt-3 mb-3" style="background-color:#695043"></div>
-                <p>Наппа Cigarette <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#695043">ВЫБРАТЬ</button>
-            </div>
-        </div>
-        <div class="col-4 mb-3 elem-wrapper">
-            <div class="elem">
-                <div class="color-block mt-3 mb-3" style="background-color:#CDBEAC"></div>
-                <p>Наппа Porcelain <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#CDBEAC">ВЫБРАТЬ</button>
-            </div>
-        </div>
-        <div class="col-4 mb-3 elem-wrapper">
-            <div class="elem">
-                <div class="color-block mt-3 mb-3" style="background-color:#A79888"></div>
-                <p>Наппа Silk Beige <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#A79888">ВЫБРАТЬ</button>
-            </div>
-        </div>
-        <div class="col-4 mb-3 elem-wrapper">
-            <div class="elem">
-                <div class="color-block mt-3 mb-3" style="background-color:#695043"></div>
-                <p>Наппа Cigarette <br> 1.3232323 - 2.32332</p>
-                <button class="btn btn-sm mt-2 mb-1" style="background-color:#695043">ВЫБРАТЬ</button>
+                <p class="color-title">Наппа Porcelain</p>
+                <p class="color-delta">1.3 | 2.3</p>
             </div>
         </div>
     </div>
 </section>
 
+<div class="modal-overlay">
+    <div class="modal-window">
+        <div class="row">
+            <div class="col-6 mt-1 mb-2">
+                <p class="modal-color-title">Название цвета</p>
+            </div>
+            <div class="col-6 mt-1 mb-2">
+                <p type="button" class="close-modal-window">&times;</p>
+            </div>
+            <div class="col-12 mt-1 mb-2">
+                <div class="modal-color-block" style="background-color:#433A46"></div>
+            </div>
+            <div class="col-12 mt-1 mb-2">
+                <p>Контакты</p>
+                <ul>
+                    <li>Телефон: 8(988) 888-88-88</li>
+                    <li>Email: mail@gmail.com</li>
+                </ul>
+                <p>Количество: 15</p>
+            </div>
+            <div class="col-12">
+                <button class="btn text-white" style="background-color:#433A46">Выбрать</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let modalWindow = document.querySelector(".modal-overlay")
+    let modalCloseBtns = document.querySelectorAll(".close-modal-window")
+    let items = document.querySelectorAll(".elem")
+    for (btn of modalCloseBtns){
+        btn.addEventListener("click", function(){
+            btn.parentNode.parentNode.parentNode.parentNode.classList.add("d-none")
+        })
+    }
+    for (item of items){
+        item.addEventListener("click", function(){
+            modalWindow.classList.remove("d-none")
+        })
+    }
+</script>
 <script type="application/javascript">
     Telegram.WebApp.ready();
 
@@ -425,5 +487,6 @@
         return false;
     }
 </script>
+
 </body>
 </html>
