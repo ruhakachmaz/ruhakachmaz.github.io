@@ -21,6 +21,7 @@
 
     </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
         body {
             font-family: sans-serif;
             background-color: var(--tg-theme-bg-color, #ffffff);
@@ -178,10 +179,62 @@
             font-size: 12px;
         }
 
+
         .elem{
-            height: 70px;
-            border:1px solid red;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            height: 120px;
+            transition: .3s;
         }
+
+/*        .elem::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }*/
+
+        .color-block{
+            width: 100px;
+            height: 30px;
+            border-radius: 2px;
+        }
+
+        .elem *{
+            font-family: 'Montserrat', sans-serif;
+            margin:0 auto;
+        }
+
+        .elem button{
+            width: 100px;
+            cursor: pointer;
+            font-size: 10px;
+            color: #fff;
+            transition: .4s;
+        }
+
+
+        .elem p{
+            font-size: 10px;
+        }
+
+        .elem-main{
+            padding: 5px;
+            height: 150px;
+        }
+
+        .elem-main p{
+            margin:0;
+            text-align: left;
+        }
+        .color-block-main{
+            border-radius: 2px;
+            width: 100%;
+            height: 100%;
+        }
+
     </style>
 </head>
 
@@ -189,14 +242,38 @@
 
 <section>
     <div class="row">
-        <div class="col-4">
-            <div class="elem"></div>
+        <div class="col-12 mb-3 elem-wrapper">
+            <div class="elem-main row">
+                <div class="col-5 text-left">
+                    <p>Наппа Violet</p>
+                    <p>Lab: 646, 6565, 6565</p>
+                </div>
+                <div class="col-7">
+                    <div class="color-block-main" style="background-color:#433A46"></div>
+                </div>
+            </div>
         </div>
-        <div class="col-4">
-            <div class="elem"></div>
+        <hr>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#CDBEAC"></div>
+                <p>Наппа Porcelain</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#CDBEAC">ВЫБРАТЬ</button>
+            </div>
         </div>
-        <div class="col-4">
-            <div class="elem"></div>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#A79888"></div>
+                <p>Наппа Silk Beige</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#A79888">ВЫБРАТЬ</button>
+            </div>
+        </div>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#695043"></div>
+                <p>Наппа Cigarette</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#695043">ВЫБРАТЬ</button>
+            </div>
         </div>
     </div>
 </section>
