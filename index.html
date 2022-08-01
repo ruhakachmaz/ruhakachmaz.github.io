@@ -24,7 +24,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
         body {
             font-family: sans-serif;
-            background-color: var(--tg-theme-bg-color, #ffffff);
+            background-color: var(--tg-theme-bg-color, #F6FFFE);
             color: var(--tg-theme-text-color, #222222);
             font-size: 16px;
             margin: 0;
@@ -184,17 +184,13 @@
             font-family: 'Montserrat', sans-serif;
             position: relative;
             height: 120px;
-            transition: .3s;
+            transition: .15s;
         }
 
-/*        .elem::after{
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        }*/
+        .elem-wrapper:hover{
+            background-color:rgba(0,0,0,.1);
+            transition: .15s;
+        }
 
         .color-block{
             width: 100px;
@@ -212,9 +208,13 @@
             cursor: pointer;
             font-size: 10px;
             color: #fff;
+            outline: none;
             transition: .4s;
         }
 
+        .elem button:focus{
+            box-shadow: none;
+        }
 
         .elem p{
             font-size: 10px;
@@ -254,6 +254,69 @@
             </div>
         </div>
         <hr>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#CDBEAC"></div>
+                <p>Наппа Porcelain</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#CDBEAC">ВЫБРАТЬ</button>
+            </div>
+        </div>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#A79888"></div>
+                <p>Наппа Silk Beige</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#A79888">ВЫБРАТЬ</button>
+            </div>
+        </div>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#695043"></div>
+                <p>Наппа Cigarette</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#695043">ВЫБРАТЬ</button>
+            </div>
+        </div>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#CDBEAC"></div>
+                <p>Наппа Porcelain</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#CDBEAC">ВЫБРАТЬ</button>
+            </div>
+        </div>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#A79888"></div>
+                <p>Наппа Silk Beige</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#A79888">ВЫБРАТЬ</button>
+            </div>
+        </div>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#695043"></div>
+                <p>Наппа Cigarette</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#695043">ВЫБРАТЬ</button>
+            </div>
+        </div>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#CDBEAC"></div>
+                <p>Наппа Porcelain</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#CDBEAC">ВЫБРАТЬ</button>
+            </div>
+        </div>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#A79888"></div>
+                <p>Наппа Silk Beige</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#A79888">ВЫБРАТЬ</button>
+            </div>
+        </div>
+        <div class="col-4 mb-3 elem-wrapper">
+            <div class="elem">
+                <div class="color-block mt-3 mb-3" style="background-color:#695043"></div>
+                <p>Наппа Cigarette</p>
+                <button class="btn btn-sm mt-2 mb-1" style="background-color:#695043">ВЫБРАТЬ</button>
+            </div>
+        </div>
         <div class="col-4 mb-3 elem-wrapper">
             <div class="elem">
                 <div class="color-block mt-3 mb-3" style="background-color:#CDBEAC"></div>
