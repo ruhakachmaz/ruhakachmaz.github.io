@@ -299,17 +299,6 @@
 <section>
     <div class="container">
         <div class="row" id="app-wrapper">
-            <div class="col-12 mb-3 elem-wrapper">
-                <div class="elem-main row">
-                    <div class="col-5 text-left">
-                        <p>Наппа Violet</p>
-                        <p>Lab: 646, 6565, 6565</p>
-                    </div>
-                    <div class="col-7">
-                        <div class="color-block-main" style="background-color:#433A46"></div>
-                    </div>
-                </div>
-            </div>
             <hr>
             <div class="row">
                 <div class="col-12">
@@ -406,7 +395,20 @@
     let res = eval(st);
     console.log(urldecode(findGetParameter('data')));
     console.log(res);
-    console.log(res[0].name, res[0].rgb)
+
+    appWrapper.insertAdjacentHTML("afterbegin", `
+        <div class="col-12 mb-3 elem-wrapper">
+            <div class="elem-main row">
+                <div class="col-5 text-left">
+                    <p>${res[0].name}</p>
+                    <p>RGB: (${res[0].rgb[0]}, ${res[0].rgb[1]}, ${res[0].rgb[2]})</p>
+                </div>
+                <div class="col-7">
+                    <div class="color-block-main" style="background-color:rgb(${res[0].rgb[0]}, ${res[0].rgb[1]}, ${res[0].rgb[2]})"></div>
+                </div>
+            </div>
+        </div>
+    `)
 
 
 </script>
