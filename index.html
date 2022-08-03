@@ -298,7 +298,7 @@
 
 <section>
     <div class="container">
-        <div class="row">
+        <div class="row" id="app-wrapper">
             <div class="col-12 mb-3 elem-wrapper">
                 <div class="elem-main row">
                     <div class="col-5 text-left">
@@ -371,6 +371,7 @@
 <button class="btn btn-success d-none" id="send-offer">Заказать</button>
 
 <script>
+    let appWrapper = document.querySelector("#app-wrapper")
     let modalWindow = document.querySelector(".modal-overlay")
     let modalCloseBtns = document.querySelectorAll(".close-modal-window")
     let items = document.querySelectorAll(".elem")
@@ -405,6 +406,9 @@
     let res = eval(st);
     console.log(urldecode(findGetParameter('data')));
     console.log(res);
+    console.log(res[0].name, res[0].rgb)
+
+
 </script>
 <script type="application/javascript">
 
