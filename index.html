@@ -299,12 +299,6 @@
 <section>
     <div class="container">
         <div class="row" id="app-wrapper">
-            <hr>
-            <div class="row">
-                <div class="col-12">
-                    <h5 class="elems-title">Ниже Вы сможете увидеть наиболее близкие цвета к введенному Вами с параметрами CIE76 и CIEDE2000 соответственно.</h5>
-                </div>
-            </div>
             <div class="col-4 mb-3 elem-wrapper">
                 <div class="elem">
                     <div class="color-block mt-3 mb-3" style="background-color:#CDBEAC"></div>
@@ -408,7 +402,25 @@
                 </div>
             </div>
         </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <h5 class="elems-title">Ниже Вы сможете увидеть наиболее близкие цвета к введенному Вами с параметрами CIE76 и CIEDE2000 соответственно.</h5>
+            </div>
+        </div>
     `)
+
+    for (let i = 1; i < res.length; i++){
+        appWrapper.insertAdjacentHTML("beforeend", `
+            <div class="col-4 mb-3 elem-wrapper">
+                <div class="elem">
+                    <div class="color-block mt-3 mb-3" style="background-color:rgb(${res[i].rgb[0]}, ${res[i].rgb[1]}, ${res[i].rgb[2]})"></div>
+                    <p class="color-title">${res[i].name}</p>
+                    <p class="color-delta">${Math.round(res[i].С2000 * 100) / 100} | ${Math.round(res[i].с76 * 100) / 100}</p>
+                </div>
+            </div>
+        `)
+    }
 
 
 </script>
