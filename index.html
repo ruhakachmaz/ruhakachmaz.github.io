@@ -340,18 +340,7 @@
     let appWrapper = document.querySelector("#app-wrapper")
     let modalWindow = document.querySelector(".modal-overlay")
     let modalCloseBtns = document.querySelectorAll(".close-modal-window")
-    let items = document.querySelectorAll(".elem")
-    let offerBtn = document.querySelector("#send-offer")
-    for (btn of modalCloseBtns){
-        btn.addEventListener("click", function(){
-            btn.parentNode.parentNode.parentNode.parentNode.classList.add("d-none")
-        })
-    }
-    for (item of items){
-        item.addEventListener("click", function(){
-            modalWindow.classList.remove("d-none")
-        })
-    }
+
 
     function findGetParameter(parameterName) {
         var result = null,
@@ -403,6 +392,19 @@
                 </div>
             </div>
         `)
+    }
+
+    let items = document.querySelectorAll(".elem")
+    let offerBtn = document.querySelector("#send-offer")
+    for (btn of modalCloseBtns){
+        btn.addEventListener("click", function(){
+            btn.parentNode.parentNode.parentNode.parentNode.classList.add("d-none")
+        })
+    }
+    for (item of items){
+        item.addEventListener("click", function(){
+            modalWindow.classList.remove("d-none")
+        })
     }
 
 
