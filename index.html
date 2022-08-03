@@ -395,24 +395,26 @@
             tmp = items[index].split("=");
             if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
         }
-        alert(result)
+        alert(result[0])
         return result;
     }
 
     function urldecode(str) {
      return decodeURIComponent((str+'').replace(/\+/g, '%20'));
     }
-</script>
-<script type="application/javascript">
 
-
-
-    let st=  urldecode(findGetParameter('data'))
+    let st = urldecode(findGetParameter('data'))
     let res = eval(st);
     console.log(urldecode(findGetParameter('data')));
     console.log(res);
     let el = document.getElementById('test-te');
     el.innerHTML = res[9];
+</script>
+<script type="application/javascript">
+
+
+
+
     Telegram.WebApp.ready();
 
     const initData = Telegram.WebApp.initData || '';
