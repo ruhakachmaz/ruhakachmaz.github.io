@@ -312,24 +312,24 @@
     <div class="modal-window">
         <div class="row">
             <div class="col-6 mt-1 mb-2">
-                <p class="modal-color-title">Название цвета</p>
+                <p id="modal-color-name" class="modal-color-title">Название цвета</p>
             </div>
             <div class="col-6 mt-1 mb-2">
                 <p class="close-modal-window">&times;</p>
             </div>
             <div class="col-12 mt-1 mb-2">
-                <div class="modal-color-block" style="background-color:#433A46"></div>
+                <div id="modal-color-rgb" class="modal-color-block" style="background-color:#433A46"></div>
             </div>
             <div class="col-12 mt-1 mb-2">
                 <p>Контакты</p>
                 <ul>
-                    <li>Телефон: 8(988) 888-88-88</li>
-                    <li>Email: mail@gmail.com</li>
+                    <li>Телефон: <input id="modal-form-phone" type="text" name=""></li>
+                    <li>Количество: <input id="modal-form-count" type="text" name=""></li>
                 </ul>
-                <p>Количество: 15</p>
+                <p>Дополнительно:<input id="modal-form-dop" type="text" name=""></p>
             </div>
             <div class="col-12">
-                <button class="btn text-white" style="background-color:#433A46">Выбрать</button>
+                <button id="modal-form-send" class="btn text-white" style="background-color:#433A46">Заказать</button>
             </div>
         </div>
     </div>
@@ -337,6 +337,8 @@
 <button class="btn btn-success d-none" id="send-offer">Заказать</button>
 
 <script>
+    var tg = window.Telegram.WebApp;
+
     let appWrapper = document.querySelector("#app-wrapper")
     let modalWindow = document.querySelector(".modal-overlay")
     let modalCloseBtns = document.querySelectorAll(".close-modal-window")
@@ -357,8 +359,10 @@
      return decodeURIComponent((str+'').replace(/\+/g, '%20'));
     }
 
-    let st = urldecode(findGetParameter('data'))
-    let res = eval(st);
+    let st = urldecode(findGetParameter('data'));
+    var res = eval(st);
+    let us = urldecode(findGetParameter('user'));
+    var user = eval(us);
     console.log(urldecode(findGetParameter('data')));
     console.log(res);
 
@@ -385,10 +389,10 @@
     for (let i = 1; i < res.length; i++){
         appWrapper.insertAdjacentHTML("beforeend", `
             <div class="col-4 mb-3 elem-wrapper">
-                <div class="elem">
-                    <div class="color-block mt-3 mb-3" style="background-color:rgb(${res[i].rgb[0]}, ${res[i].rgb[1]}, ${res[i].rgb[2]})"></div>
-                    <p class="color-title">${res[i].name}</p>
-                    <p class="color-delta">${Math.round(res[i].c76 * 10) / 10} | ${Math.round(res[i].C2000 * 10) / 10}</p>
+                <div class="elem" color-name="${res[i].name}" color-name="${res[i].name}">
+                    <div class="color-block mt-3 mb-3" color-name="${res[i].name}" style="background-color:rgb(${res[i].rgb[0]}, ${res[i].rgb[1]}, ${res[i].rgb[2]})"></div>
+                    <p color-name="${res[i].name}" class="color-title">${res[i].name}</p>
+                    <p color-name="${res[i].name}" class="color-delta">${Math.round(res[i].c76 * 10) / 10} | ${Math.round(res[i].C2000 * 10) / 10}</p>
                 </div>
             </div>
         `)
@@ -401,11 +405,33 @@
             btn.parentNode.parentNode.parentNode.parentNode.classList.add("d-none")
         })
     }
+
     for (item of items){
-        item.addEventListener("click", function(){
+        item.addEventListener("click", function(e){
+            console.log(e);
+            console.log(e.target.getAttribute('color-name'))
+            let color_name = e.target.getAttribute('color-name')
+            let rgb_color = '';
+            for (var i = res.length - 1; i >= 0; i--) {
+                if (res[i].name == color_name) {
+                    rgb_color = res[i].rgb;
+                } 
+            }
+            console.log(color_name)
+            console.log(rgb_color)
+            document.getElementById('modal-color-name').innerHTML = color_name;
+            document.getElementById('modal-color-rgb').style.backgroundColor  = "rgb("+rgb_color[0]+","+rgb_color[1]+","+rgb_color[2]+")"
             modalWindow.classList.remove("d-none")
         })
     }
+    document.getElementById('modal-form-send').addEventListener("click", function(e){
+        let color_name = document.getElementById('modal-color-name').innerHTML;
+        let phone = document.getElementById('modal-form-phone').value;
+        let count = document.getElementById('modal-form-count').value;
+        let dop = document.getElementById('modal-form-dop').value;
+        let res = color_name+"|"+phone+"|"+count+"|"+dop+"|"+user;
+        tg.sendData(res); 
+    });
 
 
 </script>
@@ -415,6 +441,7 @@
 
 
     Telegram.WebApp.ready();
+
 
     const initData = Telegram.WebApp.initData || '';
     const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
