@@ -429,7 +429,7 @@
         tg.sendData(JSON.stringify(result));
     });
 
-    if (document.getElementById('modal-color-name').innerHTML === "Эко-кожа"){
+    if (document.getElementById('modal-color-name').includes("эко-кожа") || document.getElementById('modal-color-name').includes("Эко-кожа")){
         document.getElementById('meter_type').innerHTML = "Количество (пог. м)"
     } else{
         document.getElementById('meter_type').innerHTML = "Количество (м²)"
