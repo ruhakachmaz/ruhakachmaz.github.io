@@ -311,16 +311,16 @@
                 <label class="w-100">WhatsApp:<input class="form-control p-0 w-100" id="modal-form-phone" type="text" name=""> </label>
             </div>
             <div class="col-12 mt-1 mb-2">
-                <label class="w-100"><span id="meter_type"></span><input class="form-control p-0 w-100" id="modal-form-count" type="number" name=""> </label>
+                <label class="w-100"><span id="meter_type">Количество (метры): </span><input class="form-control p-0 w-100" id="modal-form-count" type="number" name=""> </label>
             </div>
             <div class="col-12 mt-1 mb-2">
                 <label class="w-100">Дополнительно:<input class="form-control p-0 w-100" id="modal-form-dop" type="text" name=""> </label>
             </div>
             <div class="col-12 mt-1 mb-2">
                 <p class="m-0">Нужна ли перфорация?</p>
-                <select name="" id="" class="form-control w-100">
-                    <option value="0">Нет</option>
-                    <option value="1">Да</option>
+                <select name="" id="modal-form-per" class="form-control w-100">
+                    <option value="Нет">Нет</option>
+                    <option value="Да">Да</option>
                 </select>
             </div>
             <div class="col-12">
@@ -424,7 +424,8 @@
         let phone = document.getElementById('modal-form-phone').value;
         let count = document.getElementById('modal-form-count').value;
         let dop = document.getElementById('modal-form-dop').value;
-        let result = [color_name,phone,count,dop,user,res[0].name];
+        let perf = document.getElementById('modal-form-per').value;
+        let result = [color_name,phone,count,dop,user,res[0].name, perf];
         tg.sendData(JSON.stringify(result));
     });
 
