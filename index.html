@@ -359,6 +359,24 @@
     var user = eval(us);
     console.log(urldecode(findGetParameter('data')));
     console.log(res);
+    
+    let sendOfferBtn = document.getElementById('modal-form-send')
+    let modalFormPhone = document.getElementById('modal-form-phone')
+    let modalLengthCount = document.getElementById('modal-form-count')
+    sendOfferBtn.disabled = true
+    sendOfferBtn.classList.add("disabled")
+
+    setInterval(function(){
+        if (modalFormPhone.value != "" && modalLengthCount.value != ""){
+            sendOfferBtn.disabled = false
+            sendOfferBtn.classList.remove("disabled")
+            console.log("OK")
+        } else{
+            sendOfferBtn.disabled = true
+            sendOfferBtn.classList.add("disabled")
+            console.log("NE OK")
+        }
+    }, 500)
 
     appWrapper.insertAdjacentHTML("afterbegin", `
         <div class="col-12 mb-3 elem-wrapper">
