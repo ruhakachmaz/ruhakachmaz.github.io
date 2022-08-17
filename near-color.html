@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Telegram WebApp</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        function setThemeClass() {
+            document.documentElement.className = Telegram.WebApp.colorScheme;
+        }
+        Telegram.WebApp.onEvent('themeChanged', setThemeClass);
+        setThemeClass();
+
+    </script>
+   <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+<section>
+    <div class="container">
+        <div class="row" id="app-wrapper">
+
+        </div>
+
+    </div>
+</section>
+
+<div class="modal-overlay d-none">
+    <div class="modal-window">
+        <div class="row">
+            <div class="col-8 mt-1 mb-2">
+                <p id="modal-color-name" class="modal-color-title">Название цвета</p>
+            </div>
+            <div class="col-4 mt-1 mb-2">
+                <p class="close-modal-window">&times;</p>
+            </div>
+            <div class="col-12 mt-1 mb-2">
+                <div id="modal-color-rgb" class="modal-color-block" style="background-color:#433A46"></div>
+            </div>
+            <div class="col-12 mt-1 mb-2">
+                <label class="w-100">WhatsApp:<input class="form-control p-0 w-100" id="modal-form-phone" type="text" name=""> </label>
+            </div>
+            <div class="col-12 mt-1 mb-2">
+                <label class="w-100"><span id="meter_type">Количество (метры): </span><input class="form-control p-0 w-100" id="modal-form-count" type="number" name=""> </label>
+            </div>
+            <div class="col-12 mt-1 mb-2">
+                <label class="w-100">Дополнительно:<input class="form-control p-0 w-100" id="modal-form-dop" type="text" name=""> </label>
+            </div>
+            <div class="col-12 mt-1 mb-2">
+                <p class="m-0">Нужна ли перфорация?</p>
+                <select name="" id="modal-form-per" class="form-control w-100">
+                    <option value="Нет">Нет</option>
+                    <option value="Да">Да</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <button id="modal-form-send" class="btn text-white" style="background-color:#433A46">Заказать</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <script src="assets/script2.js"></script>
+
+  <script src="assets/tg.js"></script>
+
+</body>
+</html>
