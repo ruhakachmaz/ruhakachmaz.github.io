@@ -27,6 +27,18 @@
     console.log(urldecode(findGetParameter('data')));
     console.log(res);
 
+    let sendOfferBtn = document.querySelector("#modal-form-send")
+    let waInput = document.querySelector("#modal-form-phone")
+    let meterInput = document.querySelector("#modal-form-count")
+    sendOfferBtn.disabled = true
+    setInterval(function(){
+        if(waInput.value != "" && meterInput.value != ""){
+            sendOfferBtn.disabled = false
+        } else {
+            sendOfferBtn.disabled = true
+        }
+    }, 500)
+
     appWrapper.insertAdjacentHTML("afterbegin", `
         <div class="col-12 mb-3 elem-wrapper">
             <div class="elem-main row">
