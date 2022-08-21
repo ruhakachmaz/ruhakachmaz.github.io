@@ -51,7 +51,7 @@
             <div class="col-4 mb-3 elem-wrapper">
                 <div class="elem" color-name="${res[i].name}" color-name="${res[i].name}" creator-name="${res[i].creator}">
                     <div class="color-block mt-3 mb-3" color-name="${res[i].name}" creator-name="${res[i].creator}" style="background-color:rgb(${res[i].rgb[0]}, ${res[i].rgb[1]}, ${res[i].rgb[2]})"></div>
-                    <p color-name="${res[i].name}" class="color-title" creator-name="${res[i].creator}>${res[i].name}</p>
+                    <p color-name="${res[i].name}" class="color-title" creator-name="${res[i].creator}" >${res[i].name}</p>
                     <p color-name="${res[i].name}" class="color-title mt-1" creator-name="${res[i].creator}">Поставщик: <strong>${res[i].creator}</strong></p>
                 </div>
             </div>
