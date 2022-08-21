@@ -35,8 +35,9 @@
             </div>
         </div>
     `)
-
+    console.log(res);
     for (let i = 0; i < res.length; i++){
+    if (res[i]['is_color_creator'] == 0) {
         appWrapper.insertAdjacentHTML("beforeend", `
             <div class="col-4 mb-3 elem-wrapper">
                 <div class="elem" color-name="${res[i].name}" color-name="${res[i].name}">
@@ -45,6 +46,16 @@
                 </div>
             </div>
         `)
+       }else{
+       appWrapper.insertAdjacentHTML("beforeend", `
+            <div class="col-4 mb-3 elem-wrapper">
+                <div class="elem" color-name="${res[i].name}" color-name="${res[i].name}" creator-name="${res[i].creator}">
+                    <div class="color-block mt-3 mb-3" color-name="${res[i].name}" creator-name="${res[i].creator}" style="background-color:rgb(${res[i].rgb[0]}, ${res[i].rgb[1]}, ${res[i].rgb[2]})"></div>
+                    <p color-name="${res[i].name}" creator-name="${res[i].creator}" class="color-title">${res[i].name} ${res[i].creator}</p>
+                </div>
+            </div>
+        `)
+       }
     }
 
     let items = document.querySelectorAll(".elem")
@@ -68,8 +79,17 @@
             }
             console.log(color_name)
             console.log(rgb_color)
-            let result = [color_name, rgb_color, 'near_color'];
-            tg.sendData(JSON.stringify(result));
+            if (e.target.hasAttribute("creator-name")) {
+                let creator = e.target.getAttribute('creator-name');
+                let result = [color_name,creator, rgb_color, 'near_color'];
+tg.sendData(JSON.stringify(result));
+            console.log(result)
+            }  else{
+                let result = [color_name, rgb_color, 'near_color'];
+                tg.sendData(JSON.stringify(result));
+            console.log(result)
+            }
+
         })
     }
     document.getElementById('modal-form-send').addEventListener("click", function(e){
@@ -82,8 +102,8 @@
         tg.sendData(JSON.stringify(result));
     });
 
-    if (document.getElementById('modal-color-name').includes("эко-кожа") || document.getElementById('modal-color-name').includes("Эко-кожа")){
-        document.getElementById('meter_type').innerHTML = "Количество (пог. м)"
-    } else{
-        document.getElementById('meter_type').innerHTML = "Количество (м²)"
-    }
+//    if (document.getElementById('modal-color-name').includes("эко-кожа") || document.getElementById('modal-color-name').includes("Эко-кожа")){
+//        document.getElementById('meter_type').innerHTML = "Количество (пог. м)"
+//    } else{
+//        document.getElementById('meter_type').innerHTML = "Количество (м²)"
+//    }
