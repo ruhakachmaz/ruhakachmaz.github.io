@@ -27,24 +27,6 @@
     console.log(urldecode(findGetParameter('data')));
     console.log(res);
 
-    let sendOfferBtn = document.getElementById('modal-form-send')
-    let modalFormPhone = document.getElementById('modal-form-phone')
-    let modalLengthCount = document.getElementById('modal-form-count')
-    sendOfferBtn.disabled = true
-    sendOfferBtn.classList.add("disabled")
-
-    setInterval(function(){
-        if (modalFormPhone.value != "" && modalLengthCount.value != ""){
-            sendOfferBtn.disabled = false
-            sendOfferBtn.classList.remove("disabled")
-            console.log("OK")
-        } else{
-            sendOfferBtn.disabled = true
-            sendOfferBtn.classList.add("disabled")
-            console.log("NE OK")
-        }
-    }, 500)
-
     appWrapper.insertAdjacentHTML("afterbegin", `
         <div class="col-12 mb-3 elem-wrapper">
             <div class="elem-main row">
@@ -101,7 +83,13 @@
             console.log(rgb_color)
             document.getElementById('modal-color-name').innerHTML = color_name;
             document.getElementById('modal-color-rgb').style.backgroundColor  = "rgb("+rgb_color[0]+","+rgb_color[1]+","+rgb_color[2]+")"
-            modalWindow.classList.remove("d-none")
+            modalWindow.classList.remove("d-none");
+            if (document.getElementById('modal-color-name').innerHTML.includes("эко-кожа") || document.getElementById('modal-color-name').innerHTML.includes("Эко-кожа")){
+        document.getElementById('meter_type').innerHTML = "Количество (пог. м)"
+    } else{
+        document.getElementById('meter_type').innerHTML = "Количество (м²)"
+    }
+
         })
     }
     document.getElementById('modal-form-send').addEventListener("click", function(e){
@@ -113,9 +101,9 @@
         let result = [color_name,phone,count,dop,user,res[0].name, perf, 'choose_color'];
         tg.sendData(JSON.stringify(result));
     });
-
-    if (document.getElementById('modal-color-name').includes("эко-кожа") || document.getElementById('modal-color-name').includes("Эко-кожа")){
-        document.getElementById('meter_type').innerHTML = "Количество (пог. м)"
-    } else{
-        document.getElementById('meter_type').innerHTML = "Количество (м²)"
-    }
+//
+//    if (document.getElementById('modal-color-name').includes("эко-кожа") || document.getElementById('modal-color-name').includes("Эко-кожа")){
+//        document.getElementById('meter_type').innerHTML = "Количество (пог. м)"
+//    } else{
+//        document.getElementById('meter_type').innerHTML = "Количество (м²)"
+//    }
