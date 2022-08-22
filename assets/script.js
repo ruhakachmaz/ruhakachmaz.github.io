@@ -71,16 +71,18 @@
                      </div>
                  </div>
              `)
+        } else {
+             appWrapper.insertAdjacentHTML("beforeend", `
+                 <div class="col-4 mb-3 elem-wrapper">
+                     <div class="elem" color-name="${res[i].name}" color-name="${res[i].name}">
+                         <div class="color-block mt-3 mb-3" color-name="${res[i].name}" style="background-color:rgb(${res[i].rgb[0]}, ${res[i].rgb[1]}, ${res[i].rgb[2]})"></div>
+                         <p color-name="${res[i].name}" class="color-title">${res[i].name}</p>
+                         <p color-name="${res[i].name}" class="color-delta">${Math.round(res[i].c76 * 10) / 10} | ${Math.round(res[i].C2000 * 10) / 10}</p>
+                     </div>
+                 </div>
+             `)
         }
-        appWrapper.insertAdjacentHTML("beforeend", `
-            <div class="col-4 mb-3 elem-wrapper">
-                <div class="elem" color-name="${res[i].name}" color-name="${res[i].name}">
-                    <div class="color-block mt-3 mb-3" color-name="${res[i].name}" style="background-color:rgb(${res[i].rgb[0]}, ${res[i].rgb[1]}, ${res[i].rgb[2]})"></div>
-                    <p color-name="${res[i].name}" class="color-title">${res[i].name}</p>
-                    <p color-name="${res[i].name}" class="color-delta">${Math.round(res[i].c76 * 10) / 10} | ${Math.round(res[i].C2000 * 10) / 10}</p>
-                </div>
-            </div>
-        `)
+
     }
 
     let items = document.querySelectorAll(".elem")
