@@ -60,7 +60,18 @@
         </div>
     `)
 
-    for (let i = 1; i < res.length; i++){
+    for (let i = 0; i < res.length; i++){
+        if (i==0){
+             appWrapper.insertAdjacentHTML("beforeend", `
+                 <div class="col-4 mb-3 elem-wrapper">
+                     <div class="elem" color-name="${res[i].name}" color-name="${res[i].name}">
+                         <div class="color-block mt-3 mb-3" color-name="${res[i].name}" style="background-color:rgb(${res[i].rgb[0]}, ${res[i].rgb[1]}, ${res[i].rgb[2]})"></div>
+                         <p color-name="${res[i].name}" class="color-title">${res[i].name}</p>
+                         <p color-name="${res[i].name}" class="color-title"><b>Выбранный цвет</b></p>
+                     </div>
+                 </div>
+             `)
+        }
         appWrapper.insertAdjacentHTML("beforeend", `
             <div class="col-4 mb-3 elem-wrapper">
                 <div class="elem" color-name="${res[i].name}" color-name="${res[i].name}">
