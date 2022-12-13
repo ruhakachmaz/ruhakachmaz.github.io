@@ -62,7 +62,7 @@
 
     for (let i = 0; i < res.length; i++){
         if (typeof res[i].creator === 'undefined'){
-          res[i].creator = "";
+          res[i].creator = "Нет информации";
         }
         if (i==0){
              appWrapper.insertAdjacentHTML("beforeend", `
