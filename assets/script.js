@@ -61,6 +61,9 @@
     `)
 
     for (let i = 0; i < res.length; i++){
+        if (typeof res[i].creator === 'undefined'){
+          res[i].creator = "";
+        }
         if (i==0){
              appWrapper.insertAdjacentHTML("beforeend", `
                  <div class="col-4 mb-3 elem-wrapper">
